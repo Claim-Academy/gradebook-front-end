@@ -6,4 +6,7 @@
   button {
     @apply border-none bg-transparent text-blue-500 hover:cursor-pointer;
   }
+  p {
+    @apply my-2;
+  }
 }
