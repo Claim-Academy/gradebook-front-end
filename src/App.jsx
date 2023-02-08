@@ -21,7 +21,7 @@ function App() {
   return (
     <main className="flex flex-col gap-y-4">
       <form
-        className="mt-4 flex flex-col items-center gap-y-2"
+        className="mt-4 flex flex-col items-center gap-y-4"
         onSubmit={(e) => {
           e.preventDefault();
 
@@ -71,7 +71,7 @@ function App() {
       </form>
 
       <button
-        className="text-center text-blue-500"
+        className="text-center"
         onClick={() => {
           setIsRegistering((prev) => !prev);
         }}

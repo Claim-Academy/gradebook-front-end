@@ -9,7 +9,10 @@ export default function Button({ type, color, text }) {
   };
 
   return (
-    <button type={type} className={`${colorVariants[color]} rounded px-4 py-2`}>
+    <button
+      type={type}
+      className={`${colorVariants[color]} rounded px-4 py-2 shadow-sm`}
+    >
       {text}
     </button>
   );
