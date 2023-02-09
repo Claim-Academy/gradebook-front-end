@@ -46,6 +46,7 @@ export default function LoginRegister() {
   };
 
   const handleSubmission = (submittedUser) => {
+    console.log(submittedUser);
     apiService
       .loginOrRegister(submittedUser, isRegistering)
       .then((response) => {
@@ -86,6 +87,7 @@ export default function LoginRegister() {
             label="Confirm Password"
             id="confirmPassword"
             type="password"
+            register={register}
           >
             {errors.confirmPassword && (
               <Error message={errors.confirmPassword.message} />
