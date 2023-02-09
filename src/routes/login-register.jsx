@@ -46,7 +46,6 @@ export default function LoginRegister() {
   };
 
   const handleSubmission = (submittedUser) => {
-    console.log(submittedUser);
     apiService
       .loginOrRegister(submittedUser, isRegistering)
       .then((response) => {
@@ -97,18 +96,21 @@ export default function LoginRegister() {
 
         <Button type="submit" text={isRegistering ? "Sign Up" : "Login"} />
 
+        <button
+          type="reset"
+          className="text-center"
+          onClick={() => {
+            setIsRegistering((prev) => !prev);
+          }}
+        >
+          {isRegistering
+            ? "Already have an account?"
+            : "Don't have an account?"}
+        </button>
+
         {/* Conditional rendering: IF error is updated to something truthy (not null)... */}
         {error && <Error message={error.message} />}
       </form>
-
-      <button
-        className="text-center"
-        onClick={() => {
-          setIsRegistering((prev) => !prev);
-        }}
-      >
-        {isRegistering ? "Already have an account?" : "Don't have an account?"}
-      </button>
     </main>
   );
 }
