@@ -20,8 +20,7 @@ export default function LoginRegister() {
 
         //  Only validate WHEN the password field has a value
         confirmPassword: yup.string().when("password", {
-          // '!!' is a shorthand for using 'Boolean()' to convert a value to a boolean
-          is: (val) => !!(val && val.length > 0),
+          is: (passwordVal) => passwordVal.length,
           then: yup
             .string()
             .oneOf([yup.ref("password")], "Passwords must match"),
