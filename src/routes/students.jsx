@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import apiService from "../services/api";
+import { apiService } from "../services";
 
 export default function Students() {
   const [students, setStudents] = useState([]);
