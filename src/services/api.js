@@ -1,14 +1,16 @@
 import ky from "ky";
 
+const BASE_URL = "http://localhost:3000/api";
+
 export default {
   loginOrRegister(credentials, isRegistering) {
     return ky
-      .post(
-        `http://localhost:3000/api/users/${isRegistering ? "create" : "login"}`,
-        {
-          json: credentials,
-        }
-      )
+      .post(`${BASE_URL}/users/${isRegistering ? "create" : "login"}`, {
+        json: credentials,
+      })
       .json();
+  },
+  getAllStudents() {
+    return ky.get(`${BASE_URL}/students`).json();
   },
 };
