@@ -7,23 +7,32 @@ import Error from "../components/error";
 import InputText from "../components/form/input-text";
 import apiService from "../services/api";
 
-const formSchema = yup.object({
-  username: yup.string().required("Username is required"),
-  password: yup.string().min(3, "Password must be at least 3 characters long"),
-
-  /**
-   * This code uses Yup's when() method to conditionally add a validation for the confirmPassword field.
-   * The when() method checks the value of the password field, and if it exists and has a length greater than 0,
-   * it requires the confirmPassword field to be a string that matches the value of the password field.
-   */
-  confirmPassword: yup.string().when("password", {
-    is: (val) => !!(val && val.length > 0),
-    then: yup.string().oneOf([yup.ref("password")], "Passwords must match"),
-  }),
-});
 export default function LoginRegister() {
   const [isRegistering, setIsRegistering] = useState(true);
   const [error, setError] = useState(null);
+
+  const formSchema = isRegistering
+    ? yup.object({
+        username: yup.string().required("Username is required"),
+        password: yup
+          .string()
+          .min(3, "Password must be at least 3 characters long"),
+
+        //  Only validate WHEN the password field has a value
+        confirmPassword: yup.string().when("password", {
+          // '!!' is a shorthand for using 'Boolean()' to convert a value to a boolean
+          is: (val) => !!(val && val.length > 0),
+          then: yup
+            .string()
+            .oneOf([yup.ref("password")], "Passwords must match"),
+        }),
+      })
+    : yup.object({
+        username: yup.string().required("Username is required"),
+        password: yup
+          .string()
+          .min(3, "Password must be at least 3 characters long"),
+      });
 
   const {
     register,
