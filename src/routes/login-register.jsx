@@ -59,7 +59,7 @@ export default function LoginRegister() {
   };
 
   return (
-    <main className="flex flex-col gap-y-4">
+    <main>
       <form
         className="mt-4 flex flex-col items-center gap-y-4"
         // 'handleSubmit' is what React Hook Form uses for the submission
