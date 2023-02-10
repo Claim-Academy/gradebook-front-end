@@ -13,4 +13,8 @@ export default {
   getStudents() {
     return ky.get(`${BASE_URL}/students`).json();
   },
+  createStudent(data) {
+    console.log("data", data);
+    return ky.post(`${BASE_URL}/students`, { json: data }).json();
+  },
 };

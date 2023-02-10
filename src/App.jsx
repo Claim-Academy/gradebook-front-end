@@ -16,6 +16,21 @@ const router = createBrowserRouter([
     loader() {
       return apiService.getStudents();
     },
+
+    async action(postSubmission) {
+      const { request } = postSubmission;
+
+      // Read the request body as form data
+      const formData = await request.formData();
+
+      // Turn the form data into a plain object
+      const data = Object.fromEntries(formData);
+
+      // Send the data to the server
+      const newStudent = await apiService.createStudent(data);
+
+      return { newStudent };
+    },
   },
 ]);
 
