@@ -10,7 +10,7 @@ export default {
       })
       .json();
   },
-  getAllStudents() {
+  getStudents() {
     return ky.get(`${BASE_URL}/students`).json();
   },
 };
