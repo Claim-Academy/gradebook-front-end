@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginRegister from "./routes/login-register";
 import Students from "./routes/students";
+import apiService from "./services/api";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,9 @@ const router = createBrowserRouter([
   {
     path: "/students",
     element: <Students />,
+    loader() {
+      return apiService.getAllStudents();
+    },
   },
 ]);
 
