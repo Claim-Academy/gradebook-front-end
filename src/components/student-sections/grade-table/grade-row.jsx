@@ -1,5 +1,6 @@
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
+import PropTypes from "prop-types";
 
 export default function GradeRow({ grade }) {
   return (
@@ -13,3 +14,12 @@ export default function GradeRow({ grade }) {
     </TableRow>
   );
 }
+
+GradeRow.propTypes = {
+  grade: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    earned: PropTypes.number.isRequired,
+    possible: PropTypes.number.isRequired,
+  }).isRequired,
+};

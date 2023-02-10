@@ -24,6 +24,14 @@ StudentSections.propTypes = {
     PropTypes.shape({
       _id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
+      grades: PropTypes.arrayOf(
+        PropTypes.shape({
+          _id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          earned: PropTypes.number.isRequired,
+          possible: PropTypes.number.isRequired,
+        })
+      ).isRequired,
     })
   ).isRequired,
 };
