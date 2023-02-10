@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import GradeTable from "./grade-table/grade-table";
 
 export default function StudentSections({ students }) {
   return (
@@ -10,6 +11,7 @@ export default function StudentSections({ students }) {
             className="flex flex-col items-center gap-y-2"
           >
             <h2>{student.name}</h2>
+            <GradeTable grades={student.grades} />
           </section>
         );
       })}
