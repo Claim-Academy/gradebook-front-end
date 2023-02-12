@@ -3,7 +3,7 @@ import GradeTable from "./grade-table/grade-table";
 
 export default function StudentSections({ students }) {
   return (
-    <section>
+    <>
       {students.map((student) => {
         return (
           <section
@@ -15,7 +15,7 @@ export default function StudentSections({ students }) {
           </section>
         );
       })}
-    </section>
+    </>
   );
 }
 
